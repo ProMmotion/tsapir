@@ -35,7 +35,7 @@ const SequelizeFunc = {
 	endswith: Op.endsWith
 };
 
-export class ODataParser {
+export default class ODataParser {
 	static Parse<T>(query: string | undefined): FindOptions<T> | undefined {
 		if (query == undefined || query == "") {
 			return undefined;

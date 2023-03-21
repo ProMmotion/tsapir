@@ -1,6 +1,6 @@
-import { HttpStatusCodes } from "./enums/HttpStatusCodes";
+import HttpStatusCodes from "./enums/HttpStatusCodes";
 
-export class APIError extends Error {
+export default class APIError extends Error {
 	public errorStatus: HttpStatusCodes;
 	constructor(errorStatus: HttpStatusCodes, message: string) {
 		super(message);

@@ -1,9 +1,9 @@
 import https from "https";
 import { ControllerService } from "./core/controller/ControllerService";
-import { Route } from "./core/Route";
 import APIConfig from "./core/APIConfig";
 import { IncomingMessage, ServerResponse } from "http";
 import { Sequelize } from "sequelize";
+import Route from "./core/Route";
 
 export default class API {
 	private readonly ROUTER;

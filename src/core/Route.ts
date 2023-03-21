@@ -1,6 +1,6 @@
-import { BaseController } from "./controller/BaseController";
+import BaseController from "./controller/BaseController";
 
-export interface Route {
+export default interface Route {
 	route: string;
 	controller: BaseController;
 	entityType?: string;

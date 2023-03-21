@@ -1,10 +1,10 @@
-import { HttpStatusCodes } from "../../enums/HttpStatusCodes";
+import HttpStatusCodes from "../../enums/HttpStatusCodes";
 import { APIIncomingMessage } from "../../APIIncomingMessage";
 import { canDelete } from "../../Right";
 import { APIGuard } from "./APIGuard";
 import IManagerService from "../../manager/IManagerService";
 
-export class DeleteGuard implements APIGuard {
+export default class DeleteGuard implements APIGuard {
 	async handle(
 		req: APIIncomingMessage,
 		managers: IManagerService

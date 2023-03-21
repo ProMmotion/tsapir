@@ -1,8 +1,8 @@
-import { HttpStatusCodes } from "../../enums/HttpStatusCodes";
-import { APIError } from "../../APIError";
+import APIError from "../../APIError";
 import { APIIncomingMessage } from "../../APIIncomingMessage";
 import { Class } from "../../utils/Class";
 import IManagerService from "../../manager/IManagerService";
+import HttpStatusCodes from "../../enums/HttpStatusCodes";
 
 export abstract class APIGuard {
 	abstract handle(

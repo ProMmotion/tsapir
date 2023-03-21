@@ -1,17 +1,15 @@
 import { ServerResponse } from "http";
-import { APIError } from "../APIError";
 import { APIIncomingMessage } from "../APIIncomingMessage";
-import { APIResponse } from "../APIResponse";
-import { HttpMethods } from "../enums/HttpMethods";
-import { HttpStatusCodes } from "../enums/HttpStatusCodes";
 import { findMatchingRoute, parseRouteParam } from "../utils/utils";
 
-import { APIControllerMethod } from "../APIControllerMethod";
 import { handleGuards } from "./guards/APIGuard";
-import { ContentTypes } from "../enums/ContentTypes";
 import IManagerService from "../manager/IManagerService";
+import { ContentTypes, HttpMethods, HttpStatusCodes } from "../enums";
+import APIControllerMethod from "../APIControllerMethod";
+import APIError from "../APIError";
+import APIResponse from "../APIResponse";
 
-export abstract class BaseController {
+export default abstract class BaseController {
 	protected managerService: IManagerService;
 
 	protected subroutes: APIControllerMethod[] = [];

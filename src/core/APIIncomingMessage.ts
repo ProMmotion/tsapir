@@ -1,5 +1,5 @@
 import { IncomingMessage } from "http";
-import IBaseUser from "./entities/BaseUser";
+import IBaseUser from "./entities/IBaseUser";
 
 export class APIIncomingMessage extends IncomingMessage {
 	public query?: string;

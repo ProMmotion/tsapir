@@ -1,7 +1,7 @@
 import { IsEmail } from "../../utils/utils";
-import { Validator } from "../Validator";
+import Validator from "../Validator";
 
-export class IsEmailValidator extends Validator {
+export default class IsEmailValidator extends Validator {
 	constructor() {
 		super();
 		this.name = "IsEmail";

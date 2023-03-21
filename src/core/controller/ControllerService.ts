@@ -1,9 +1,9 @@
 import { ServerResponse } from "http";
-import { APIError } from "../APIError";
-import { APIResponse } from "../APIResponse";
-import { HttpStatusCodes } from "../enums/HttpStatusCodes";
 import { APIIncomingMessage } from "../APIIncomingMessage";
-import { Route } from "../Route";
+import Route from "../Route";
+import APIResponse from "../APIResponse";
+import APIError from "../APIError";
+import { HttpStatusCodes } from "../enums";
 
 export class ControllerService {
 	public RequestHandler(

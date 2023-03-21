@@ -1,14 +1,16 @@
-import { IsEmailValidator } from "./generic/IsEmail";
-import { IsUrlValidator } from "./generic/IsUrl";
-import { MaxValidator } from "./generic/Max";
-import { MaxLenValidator } from "./generic/MaxLen";
-import { MinValidator } from "./generic/Min";
-import { MinLenValidator } from "./generic/MinLen";
-import { NotNullValidator } from "./generic/NotNull";
-import { Validator } from "./Validator";
+import {
+	IsEmailValidator,
+	IsUrlValidator,
+	MaxLenValidator,
+	MaxValidator,
+	MinLenValidator,
+	MinValidator,
+	NotNullValidator
+} from "./generic";
+import Validator from "./Validator";
 
 // Static accessor for generic validators
-export class Validators {
+export default class Validators {
 	static maxLen(n: number): Validator {
 		return new MaxLenValidator(n);
 	}

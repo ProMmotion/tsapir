@@ -1,10 +1,10 @@
 import { APIGuard } from "./APIGuard";
 import { APIIncomingMessage } from "../../APIIncomingMessage";
-import { HttpStatusCodes } from "../../enums/HttpStatusCodes";
+import HttpStatusCodes from "../../enums/HttpStatusCodes";
 import { verify } from "jsonwebtoken";
 import IManagerService from "../../manager/IManagerService";
 
-export class AuthorizationGuard implements APIGuard {
+export default class AuthorizationGuard implements APIGuard {
 	async handle(
 		req: APIIncomingMessage,
 		managers: IManagerService

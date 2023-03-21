@@ -1,4 +1,4 @@
-export enum HttpStatusCodes {
+enum HttpStatusCodes {
 	OK = 200,
 	BADREQUEST = 400,
 	UNAUTHORIZE = 401,
@@ -7,3 +7,5 @@ export enum HttpStatusCodes {
 	NOTALLOWED = 405,
 	TOOLARGE = 413
 }
+
+export default HttpStatusCodes;

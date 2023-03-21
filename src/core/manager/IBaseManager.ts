@@ -1,5 +1,5 @@
 import { FindOptions } from "sequelize";
-import { PropertyValidator } from "../validators/PropertyValidator";
+import PropertyValidator from "../validators/PropertyValidator";
 import IModelService from "../entities/IModelService";
 
 export default interface IBaseManager<T> {

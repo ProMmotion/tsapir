@@ -1,7 +1,7 @@
 import { IsValidServerAddress } from "../../utils/utils";
-import { Validator } from "../Validator";
+import Validator from "../Validator";
 
-export class IsUrlValidator extends Validator {
+export default class IsUrlValidator extends Validator {
 	constructor() {
 		super();
 		this.name = "IsUrl";

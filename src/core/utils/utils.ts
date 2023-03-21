@@ -1,8 +1,7 @@
 import net from "net";
 import { URL } from "url";
-import { Right } from "./Right";
-import { APIControllerMethod } from "../APIControllerMethod";
 import { DateHelper } from "../helpers/DateHelper";
+import APIControllerMethod from "../APIControllerMethod";
 
 export function IsEmail(email: string): boolean {
 	const reg: RegExp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
@@ -21,59 +20,6 @@ export function IsValidServerAddress(address: string): boolean {
 		}
 		return false;
 	}
-}
-
-export function canCreate(r: number): boolean {
-	const creates = [
-		Right.Create,
-		Right.Create + Right.Read,
-		Right.Create + Right.Update,
-		Right.Create + Right.Delete,
-		Right.Create + Right.Read + Right.Update,
-		Right.Create + Right.Read + Right.Delete,
-		Right.Create + Right.Update + Right.Delete,
-		Right.Create + Right.Read + Right.Update + Right.Delete
-	];
-	return creates.find((c) => c === r) != null;
-}
-export function canRead(r: number): boolean {
-	const reads = [
-		Right.Read,
-		Right.Read + Right.Create,
-		Right.Read + Right.Update,
-		Right.Read + Right.Delete,
-		Right.Read + Right.Create + Right.Update,
-		Right.Read + Right.Create + Right.Delete,
-		Right.Read + Right.Update + Right.Delete,
-		Right.Read + Right.Create + Right.Update + Right.Delete
-	];
-	return reads.find((read) => read === r) != null;
-}
-export function canUpdate(r: number): boolean {
-	const updates = [
-		Right.Update,
-		Right.Update + Right.Read,
-		Right.Update + Right.Create,
-		Right.Update + Right.Delete,
-		Right.Update + Right.Read + Right.Create,
-		Right.Update + Right.Read + Right.Delete,
-		Right.Update + Right.Create + Right.Delete,
-		Right.Update + Right.Read + Right.Create + Right.Delete
-	];
-	return updates.find((u) => u === r) != null;
-}
-export function canDelete(r: number): boolean {
-	const deletes = [
-		Right.Delete,
-		Right.Delete + Right.Read,
-		Right.Delete + Right.Create,
-		Right.Delete + Right.Update,
-		Right.Delete + Right.Read + Right.Create,
-		Right.Delete + Right.Read + Right.Update,
-		Right.Delete + Right.Create + Right.Update,
-		Right.Delete + Right.Read + Right.Create + Right.Update
-	];
-	return deletes.find((d) => d === r) != null;
 }
 export function parseRouteParam(
 	completeRoute: string,
