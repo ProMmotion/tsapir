@@ -20,6 +20,6 @@
 		"sequelize": "^6.6.5",
 		"sequelize-fixture": "^0.1.4",
 		"bcrypt": "^5.0.1",
-		"tsapir": "^1.0.0"
+		"tsapir": "^##tsapir_version##"
 	}
 }

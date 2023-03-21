@@ -1,8 +1,10 @@
 {
 	"name": "tsapir",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "",
-	"main": "index.js",
+	"bin": {
+		"tsapir": "lib/cli.js"
+	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "npx tsc && xcopy .\\src\\base-project\\* .\\lib\\base-project\\* /e /y"
