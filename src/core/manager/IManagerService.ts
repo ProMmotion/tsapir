@@ -1,7 +1,10 @@
 import IModelService from "../entities/IModelService";
-import IBaseManager from "./IBaseManager";
+import BaseManager from "./BaseManager";
 
-export default interface ManagerService {
+export default interface IManagerService {
 	readonly modelService: IModelService;
-	readonly Managers: { [entityType: string]: IBaseManager<any> };
+	readonly RoleManager: BaseManager<any>;
+	readonly RoleRightManager: BaseManager<any>;
+	readonly RolePropertyRightManager: BaseManager<any>;
+	readonly UserManager: BaseManager<any>;
 }

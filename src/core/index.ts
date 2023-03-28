@@ -1,15 +1,92 @@
-export const APIConfig = require("./APIConfig");
-export const APIControllerMethod = require("./APIControllerMethod");
-export const APIError = require("./APIError");
-export const APIIncommingMessage = require("./APIIncomingMessage");
-export const APIRequestOptions = require("./APIRequestOptions");
-export const APIResponse = require("./APIResponse");
-export const ODataParse = require("./ODataParser");
-export const Right = require("./Right");
-export const Route = require("./Route");
+import BaseController from "./controller/BaseController";
+import { APIGuard, handleGuards } from "./controller/guards/APIGuard";
+import AuthorizationGuard from "./controller/guards/AuthorizationGuard";
+import CreateGuard from "./controller/guards/CreateGuard";
+import DeleteGuard from "./controller/guards/DeleteGuard";
+import ReadGuard from "./controller/guards/ReadGuard";
+import UpdateGuard from "./controller/guards/UpdateGuard";
 
-export const Entities = require("./entities");
-export const Enums = require("./enums");
-export const Manager = require("./manager");
-export const Utils = require("./utils");
-export const Validators = require("./validators");
+const Guards = {
+	APIGuard,
+	handleGuards,
+	AuthorizationGuard,
+	CreateGuard,
+	DeleteGuard,
+	ReadGuard,
+	UpdateGuard
+};
+const Controller = {
+	BaseController,
+	Guards
+};
+
+import ContentTypes from "./enums/ContentTypes";
+import HttpMethods from "./enums/HttpMethods";
+import HttpStatusCodes from "./enums/HttpStatusCodes";
+
+const Enums = {
+	ContentTypes,
+	HttpMethods,
+	HttpStatusCodes
+};
+
+import BaseManager from "./manager/BaseManager";
+
+const Manager = {
+	BaseManager
+};
+
+import {
+	IsEmail,
+	findMatchingRoute,
+	getNotMatchingValueProperties,
+	parseRouteParam
+} from "./utils/utils";
+
+const Utils = {
+	IsEmail,
+	findMatchingRoute,
+	getNotMatchingValueProperties,
+	parseRouteParam
+};
+
+import Validators from "./validators/Validators";
+import Validator from "./validators/Validator";
+import PropertyValidator from "./validators/PropertyValidator";
+
+const PropertyValidators = {
+	Validators,
+	Validator,
+	PropertyValidator
+};
+
+import APIConfig from "./APIConfig";
+import APIControllerMethod from "./APIControllerMethod";
+import APIError from "./APIError";
+import APIIncomingMessage from "./APIIncomingMessage";
+import APIRequestOptions from "./APIRequestOptions";
+import APIResponse from "./APIResponse";
+import ODataParser from "./ODataParser";
+import Route from "./Route";
+import { Right, canCreate, canRead, canUpdate, canDelete } from "./Right";
+
+export {
+	APIConfig,
+	APIControllerMethod,
+	APIError,
+	APIIncomingMessage,
+	APIRequestOptions,
+	APIResponse,
+	ODataParser,
+	Route,
+	Right,
+	canCreate,
+	canDelete,
+	canRead,
+	canUpdate,
+	Controller,
+	Enums,
+	Manager,
+	Utils,
+	PropertyValidators
+};

@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import { Role } from "./Role";
-import IBaseRoleRight from "../../../core/entities/BaseRoleRight";
+import { IBaseRoleRight } from "tsapir";
 
 export interface IRoleRight extends IBaseRoleRight {}
 

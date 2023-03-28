@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import { FindOptions } from "sequelize";
-import { BaseManager } from "../BaseManager";
+import { BaseManager, PropertyValidator, Validators } from "tsapir";
 import { IUser } from "../../entities/models/User";
 
 export class UsersManager extends BaseManager<IUser> {

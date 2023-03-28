@@ -1,9 +1,11 @@
-import { FindOptions } from "sequelize/types";
+import { FindOptions } from "sequelize";
 import { IRoleRight } from "../../entities/models/RoleRight";
-import { getNotMatchingValueProperties } from "../../../core/utils/utils";
-import { BaseManager } from "../BaseManager";
-import { PropertyValidator } from "../validators/PropertyValidator";
-import { Validators } from "../validators/Validators";
+import {
+	BaseManager,
+	PropertyValidator,
+	Validators,
+	getNotMatchingValueProperties
+} from "tsapir";
 
 export class RoleRightsManager extends BaseManager<IRoleRight> {
 	async Add(entity: IRoleRight): Promise<IRoleRight> {

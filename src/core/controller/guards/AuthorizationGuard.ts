@@ -1,5 +1,5 @@
 import { APIGuard } from "./APIGuard";
-import { APIIncomingMessage } from "../../APIIncomingMessage";
+import APIIncomingMessage from "../../APIIncomingMessage";
 import HttpStatusCodes from "../../enums/HttpStatusCodes";
 import { verify } from "jsonwebtoken";
 import IManagerService from "../../manager/IManagerService";
@@ -19,7 +19,7 @@ export default class AuthorizationGuard implements APIGuard {
 				);
 				if (typeof decoded != "string") {
 					const real = (
-						await managers.Managers.User.Get({
+						await managers.UserManager.Get({
 							where: { id: decoded.userId }
 						})
 					)[0];

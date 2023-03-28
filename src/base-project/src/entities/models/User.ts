@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import { Role } from "./Role";
-import IBaseUser from "../../../core/entities/BaseUser";
+import { IBaseUser } from "tsapir";
 
 export interface IUser extends IBaseUser {
 	id: string;

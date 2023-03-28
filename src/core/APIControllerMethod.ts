@@ -1,5 +1,5 @@
 import { ServerResponse } from "http";
-import { APIIncomingMessage } from "./APIIncomingMessage";
+import APIIncomingMessage from "./APIIncomingMessage";
 import { APIGuard } from "./controller/guards/APIGuard";
 import { Class } from "./utils/Class";
 import HttpMethods from "./enums/HttpMethods";

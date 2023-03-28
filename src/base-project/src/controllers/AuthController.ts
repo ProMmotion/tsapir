@@ -2,13 +2,15 @@ import bcrypt from "bcrypt";
 import { ServerResponse } from "http";
 import { sign } from "jsonwebtoken";
 import { Op } from "sequelize";
-import { BaseController } from "../../core/controller/BaseController";
-import { APIError } from "../../core/APIError";
-import { APIIncomingMessage } from "../../core/APIIncomingMessage";
-import { APIResponse } from "../../core/APIResponse";
-import { ContentTypes } from "../../core/enums/ContentTypes";
-import { HttpMethods } from "../../core/enums/HttpMethods";
-import { HttpStatusCodes } from "../../core/enums/HttpStatusCodes";
+import {
+	HttpStatusCodes,
+	HttpMethods,
+	ContentTypes,
+	APIResponse,
+	APIIncomingMessage,
+	APIError,
+	BaseController
+} from "tsapir";
 import { IUser } from "../entities/models/User";
 import { ManagerService } from "../manager/ManagerService";
 
@@ -49,7 +51,7 @@ export class AuthController extends BaseController {
 					{ login: "", email: "", birth: new Date(), password: "" },
 					req.body
 				);
-				this.managerService.UsersManager.Add({
+				this.managerService.UserManager.Add({
 					id: 0,
 					birthday: signinForm.birth,
 					email: signinForm.email,
@@ -102,7 +104,7 @@ export class AuthController extends BaseController {
 					{ login: "", password: "" },
 					req.body
 				);
-				this.managerService.UsersManager.Get({
+				this.managerService.UserManager.Get({
 					where: {
 						[Op.or]: [
 							{ email: loginForm.login },

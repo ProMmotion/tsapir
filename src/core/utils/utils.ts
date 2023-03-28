@@ -1,5 +1,3 @@
-import net from "net";
-import { URL } from "url";
 import { DateHelper } from "../helpers/DateHelper";
 import APIControllerMethod from "../APIControllerMethod";
 
@@ -9,17 +7,6 @@ export function IsEmail(email: string): boolean {
 		return false;
 	}
 	return true;
-}
-export function IsValidServerAddress(address: string): boolean {
-	try {
-		new URL(address);
-		return true;
-	} catch (e) {
-		if (net.isIP(address) !== 0) {
-			return true;
-		}
-		return false;
-	}
 }
 export function parseRouteParam(
 	completeRoute: string,

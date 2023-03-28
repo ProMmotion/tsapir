@@ -1,25 +1,25 @@
 import { ServerResponse } from "http";
-import { FindOptions } from "sequelize/types";
+import { FindOptions } from "sequelize";
 import { ManagerService } from "../manager/ManagerService";
 import {
+	HttpStatusCodes,
+	HttpMethods,
+	ContentTypes,
+	UpdateGuard,
+	ReadGuard,
+	DeleteGuard,
+	AuthorizationGuard,
+	ODataParser,
+	APIResponse,
+	APIIncomingMessage,
+	APIError,
+	BaseController,
 	canRead,
 	canUpdate,
 	getNotMatchingValueProperties
-} from "../../core/utils/utils";
-import { BaseController } from "../../core/controller/BaseController";
-import { HttpMethods } from "../../core/enums/HttpMethods";
-import { AuthorizationGuard } from "../../core/guards/AuthorizationGuard";
-import { ReadGuard } from "../../core/guards/ReadGuard";
-import { UpdateGuard } from "../../core/guards/UpdateGuard";
-import { IsOwnGuard } from "../../core/guards/IsOwnGuard";
-import { DeleteGuard } from "../../core/guards/DeleteGuard";
-import { APIError } from "../../core/APIError";
-import { APIIncomingMessage } from "../../core/APIIncomingMessage";
-import { APIResponse } from "../../core/APIResponse";
-import { ODataParser } from "../../core/ODataParser";
-import { ContentTypes } from "../../core/enums/ContentTypes";
-import { HttpStatusCodes } from "../../core/enums/HttpStatusCodes";
+} from "tsapir";
 import { IUser } from "../entities/models/User";
+import { IsOwnGuard } from "./guards/IsOwnGuard";
 
 // path: /api/users
 export class UsersController extends BaseController {
@@ -75,8 +75,8 @@ export class UsersController extends BaseController {
 				where: { roleId: req.user?.roleId, entityType: "User" }
 			})
 				.then((exclusion) => {
-					this.managerService.UsersManager.Get(
-						{ where: { id: req.user?.id }, include: Character },
+					this.managerService.UserManager.Get(
+						{ where: { id: req.user?.id } },
 						[
 							...exclusion
 								.filter((e) => !canRead(e.right))
@@ -133,7 +133,7 @@ export class UsersController extends BaseController {
 				where: { roleId: req.user?.roleId, entityType: "User" }
 			})
 				.then((exclusion) => {
-					this.managerService.UsersManager.Get(opts, [
+					this.managerService.UserManager.Get(opts, [
 						...exclusion
 							.filter((e) => !canRead(e.right))
 							.map((e) => e.property as keyof IUser),
@@ -187,7 +187,7 @@ export class UsersController extends BaseController {
 						},
 						req.body
 					);
-					this.managerService.UsersManager.Add(user)
+					this.managerService.UserManager.Add(user)
 						.then((u) => {
 							resolve({
 								status: HttpStatusCodes.OK,
@@ -245,7 +245,7 @@ export class UsersController extends BaseController {
 						where: { entityType: "User", roleId: req.user?.roleId }
 					})
 						.then((rpr) => {
-							this.managerService.UsersManager.Get({
+							this.managerService.UserManager.Get({
 								where: { id: user.id }
 							}).then((real) => {
 								if (real[0]) {
@@ -262,7 +262,7 @@ export class UsersController extends BaseController {
 											"There is no property you're allowed to update"
 										);
 									}
-									this.managerService.UsersManager.Update(
+									this.managerService.UserManager.Update(
 										user,
 										authorized
 									)
@@ -317,7 +317,7 @@ export class UsersController extends BaseController {
 						);
 						return;
 					}
-					this.managerService.UsersManager.Remove(user)
+					this.managerService.UserManager.Remove(user)
 						.then((u) => {
 							resolve({
 								status: HttpStatusCodes.OK,

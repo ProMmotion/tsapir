@@ -1,19 +1,21 @@
 import { ServerResponse } from "http";
 import { FindOptions } from "sequelize";
-import { Right } from "../../core/utils/Right";
-import { BaseController } from "../../core/controller/BaseController";
-import { APIError } from "../../core/APIError";
-import { APIIncomingMessage } from "../../core/APIIncomingMessage";
-import { APIResponse } from "../../core/APIResponse";
-import { ODataParser } from "../../core/ODataParser";
-import { AuthorizationGuard } from "../../core/guards/AuthorizationGuard";
-import { CreateGuard } from "../../core/guards/CreateGuard";
-import { DeleteGuard } from "../../core/guards/DeleteGuard";
-import { ReadGuard } from "../../core/guards/ReadGuard";
-import { UpdateGuard } from "../../core/guards/UpdateGuard";
-import { ContentTypes } from "../../core/enums/ContentTypes";
-import { HttpMethods } from "../../core/enums/HttpMethods";
-import { HttpStatusCodes } from "../../core/enums/HttpStatusCodes";
+import {
+	HttpStatusCodes,
+	HttpMethods,
+	ContentTypes,
+	UpdateGuard,
+	ReadGuard,
+	DeleteGuard,
+	CreateGuard,
+	AuthorizationGuard,
+	ODataParser,
+	APIResponse,
+	APIIncomingMessage,
+	APIError,
+	BaseController,
+	Right
+} from "tsapir";
 import { IRoleRight } from "../entities/models/RoleRight";
 import { ManagerService } from "../manager/ManagerService";
 
@@ -68,7 +70,7 @@ export class RoleRightsController extends BaseController {
 					)
 				);
 			}
-			this.managerService.RoleRightsManager.Get({
+			this.managerService.RoleRightManager.Get({
 				where: { roleId: req.user?.roleId }
 			})
 				.then((rrs) => {
@@ -102,7 +104,7 @@ export class RoleRightsController extends BaseController {
 				);
 				return;
 			}
-			this.managerService.RoleRightsManager.Get(opts)
+			this.managerService.RoleRightManager.Get(opts)
 				.then((rrs) => {
 					resolve({
 						body: rrs,
@@ -131,7 +133,7 @@ export class RoleRightsController extends BaseController {
 						},
 						req.body
 					);
-					this.managerService.RoleRightsManager.Add(roleRight)
+					this.managerService.RoleRightManager.Add(roleRight)
 						.then((u) => {
 							resolve({
 								status: HttpStatusCodes.OK,
@@ -182,7 +184,7 @@ export class RoleRightsController extends BaseController {
 						);
 						return;
 					}
-					this.managerService.RoleRightsManager.Update(roleRight)
+					this.managerService.RoleRightManager.Update(roleRight)
 						.then((u) => {
 							resolve({
 								status: HttpStatusCodes.OK,
@@ -233,7 +235,7 @@ export class RoleRightsController extends BaseController {
 						);
 						return;
 					}
-					this.managerService.RoleRightsManager.Remove(roleRight)
+					this.managerService.RoleRightManager.Remove(roleRight)
 						.then((u) => {
 							resolve({
 								status: HttpStatusCodes.OK,

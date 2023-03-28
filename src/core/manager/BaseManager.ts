@@ -1,9 +1,9 @@
 import { FindOptions } from "sequelize";
-import { IModelService } from "../entity/interfaces/IModelService";
-import { PropertyValidator } from "./validators/PropertyValidator";
+import PropertyValidator from "../validators/PropertyValidator";
+import IModelService from "../entities/IModelService";
 
-export abstract class BaseManager<T> {
-	protected readonly modelService: IModelService;
+export default abstract class BaseManager<T> {
+	readonly modelService: IModelService;
 	constructor(ms: IModelService) {
 		this.modelService = ms;
 	}

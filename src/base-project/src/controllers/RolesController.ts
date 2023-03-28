@@ -1,19 +1,21 @@
 import { ServerResponse } from "http";
-import { FindOptions } from "sequelize/types";
-import { canRead } from "../../core/utils/utils";
-import { BaseController } from "../../core/controller/BaseController";
-import { APIError } from "../../core/APIError";
-import { APIIncomingMessage } from "../../core/APIIncomingMessage";
-import { APIResponse } from "../../core/APIResponse";
-import { ODataParser } from "../../core/ODataParser";
-import { AuthorizationGuard } from "../../core/guards/AuthorizationGuard";
-import { CreateGuard } from "../../core/guards/CreateGuard";
-import { DeleteGuard } from "../../core/guards/DeleteGuard";
-import { ReadGuard } from "../../core/guards/ReadGuard";
-import { UpdateGuard } from "../../core/guards/UpdateGuard";
-import { ContentTypes } from "../../core/enums/ContentTypes";
-import { HttpMethods } from "../../core/enums/HttpMethods";
-import { HttpStatusCodes } from "../../core/enums/HttpStatusCodes";
+import { FindOptions } from "sequelize";
+import {
+	HttpStatusCodes,
+	HttpMethods,
+	ContentTypes,
+	UpdateGuard,
+	ReadGuard,
+	DeleteGuard,
+	CreateGuard,
+	AuthorizationGuard,
+	ODataParser,
+	APIResponse,
+	APIIncomingMessage,
+	APIError,
+	BaseController,
+	canRead
+} from "tsapir";
 import { IRole } from "../entities/models/Role";
 import { ManagerService } from "../manager/ManagerService";
 
@@ -72,7 +74,7 @@ export class RolesController extends BaseController {
 				where: { entityType: "Role", roleId: req.user?.roleId }
 			})
 				.then((rpr) => {
-					this.managerService.RolesManager.Get(
+					this.managerService.RoleManager.Get(
 						opts,
 						rpr
 							.filter((e) => !canRead(e.right))
@@ -111,7 +113,7 @@ export class RolesController extends BaseController {
 						},
 						req.body
 					);
-					this.managerService.RolesManager.Add(role)
+					this.managerService.RoleManager.Add(role)
 						.then((u) => {
 							resolve({
 								status: HttpStatusCodes.OK,
@@ -160,7 +162,7 @@ export class RolesController extends BaseController {
 						);
 						return;
 					}
-					this.managerService.RolesManager.Update(role)
+					this.managerService.RoleManager.Update(role)
 						.then((u) => {
 							resolve({
 								status: HttpStatusCodes.OK,
@@ -209,7 +211,7 @@ export class RolesController extends BaseController {
 						);
 						return;
 					}
-					this.managerService.RolesManager.Remove(role)
+					this.managerService.RoleManager.Remove(role)
 						.then((u) => {
 							resolve({
 								status: HttpStatusCodes.OK,

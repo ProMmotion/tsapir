@@ -9,6 +9,7 @@ export default async function New(name: string) {
 		console.log(`Starting to create ${appName} App !`);
 		const fs = require("fs");
 		try {
+			const exec = require("child_process").exec;
 			const path = `${process.cwd()}\\${appName}`;
 			fs.mkdir(path, (mkDirErr: Error) => {
 				if (mkDirErr) throw mkDirErr;
@@ -23,7 +24,7 @@ export default async function New(name: string) {
 							{ encoding: "utf8" },
 							(e: Error, d: string) => {
 								if (e) throw e;
-								require("child_process").exec(
+								exec(
 									"npm view tsapir version",
 									(
 										cmdErr: Error,
@@ -51,6 +52,22 @@ export default async function New(name: string) {
 												if (err) throw err;
 												console.log(
 													`Successfuly created ${appName} !`
+												);
+												exec(
+													`cd ${path} && npm i`,
+													(
+														cmdErr: Error,
+														stdout: string,
+														stderr: Error
+													) => {
+														if (cmdErr)
+															throw cmdErr;
+														if (stderr)
+															throw stderr;
+														console.log(
+															"Successfuly installed npm packages"
+														);
+													}
 												);
 											}
 										);
