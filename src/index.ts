@@ -34,6 +34,7 @@ import IBaseRoleRight from "./core/entities/IBaseRoleRight";
 import IBaseUser from "./core/entities/IBaseUser";
 import IModelService from "./core/entities/IModelService";
 import { getNotMatchingValueProperties } from "./core/utils/utils";
+import { ClassType } from "./core/utils/ClassType";
 
 export {
 	API,
@@ -69,5 +70,6 @@ export {
 	IBaseRoleRight,
 	IBaseRolePropertyRight,
 	IBaseUser,
-	getNotMatchingValueProperties
+	getNotMatchingValueProperties,
+	ClassType
 };

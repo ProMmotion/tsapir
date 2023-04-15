@@ -3,10 +3,11 @@ import IBaseRole from "./IBaseRole";
 import IBaseUser from "./IBaseUser";
 import IBaseRoleRight from "./IBaseRoleRight";
 import IBaseRolePropertyRight from "./IBaseRolePropertyRight";
+import { ClassType } from "../utils/ClassType";
 
 export default interface IModelService {
-	readonly RoleModel: typeof Model<IBaseRole>;
-	readonly RoleRightModel: typeof Model<IBaseRoleRight>;
-	readonly RolePropertyRightModel: typeof Model<IBaseRolePropertyRight>;
-	readonly UserModel: typeof Model<IBaseUser>;
+	readonly RoleModel: ClassType<Model<IBaseRole>>;
+	readonly RoleRightModel: ClassType<Model<IBaseRoleRight>>;
+	readonly RolePropertyRightModel: ClassType<Model<IBaseRolePropertyRight>>;
+	readonly UserModel: ClassType<Model<IBaseUser>>;
 }
