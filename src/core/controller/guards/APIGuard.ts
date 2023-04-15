@@ -1,6 +1,6 @@
 import APIError from "../../APIError";
 import APIIncomingMessage from "../../APIIncomingMessage";
-import { Class } from "../../utils/ClassType";
+import { ClassType } from "../../utils/ClassType";
 import IManagerService from "../../manager/IManagerService";
 import HttpStatusCodes from "../../enums/HttpStatusCodes";
 
@@ -13,7 +13,7 @@ export abstract class APIGuard {
 export async function handleGuards(
 	req: APIIncomingMessage,
 	managers: IManagerService,
-	guards: (Class<APIGuard> | Class<APIGuard>[])[]
+	guards: (ClassType<APIGuard> | ClassType<APIGuard>[])[]
 ): Promise<void> {
 	return new Promise<void>(async (resolve, reject) => {
 		if (guards.length === 0) {
