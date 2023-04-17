@@ -6,7 +6,7 @@ import { RolesManager } from "./managers/RolesManager";
 import { UsersManager } from "./managers/UsersManager";
 
 export class ManagerService implements IManagerService {
-	private readonly modelService: IModelService;
+	readonly modelService: ModelService;
 	public readonly RoleManager: RolesManager;
 	public readonly RoleRightManager: RoleRightsManager;
 	public readonly RolePropertyRightManager: RolePropertyRightsManager;

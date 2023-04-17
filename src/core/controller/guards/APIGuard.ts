@@ -1,6 +1,6 @@
 import APIError from "../../APIError";
 import APIIncomingMessage from "../../APIIncomingMessage";
-import { ClassType } from "../../utils/ClassType";
+import { ClassType } from "../../utils/Types";
 import IManagerService from "../../manager/IManagerService";
 import HttpStatusCodes from "../../enums/HttpStatusCodes";
 

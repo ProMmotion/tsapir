@@ -1,6 +1,6 @@
 {
 	"name": "tsapir",
-	"version": "1.1.48",
+	"version": "1.1.52",
 	"description": "",
 	"exports": {
 		".": {
@@ -17,7 +17,10 @@
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "npx tsc && xcopy .\\src\\base-project\\* .\\lib\\base-project\\* /e /y"
+		"build": "npx tsc && xcopy .\\src\\base-project\\* .\\lib\\base-project\\* /e /y",
+		"publish-major": "sh publish.sh ma",
+		"publish-minor": "sh publish.sh mi",
+		"publish-patch": "sh publish.sh p"
 	},
 	"repository": {
 		"type": "git",
