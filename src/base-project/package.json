@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "npx tsc -b"
+		"build": "npx tsc -b",
+		"start": "npm run build && node ./dist/index.js"
 	},
 	"devDependencies": {
 		"@types/node": "^18.14.0",

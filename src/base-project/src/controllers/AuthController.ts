@@ -11,7 +11,7 @@ import {
 	APIError,
 	BaseController
 } from "tsapir";
-import { IUser } from "../entities/models/User";
+import { IUser } from "../entities/User";
 import { ManagerService } from "../manager/ManagerService";
 
 // path: /api/authorize

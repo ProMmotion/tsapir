@@ -16,7 +16,7 @@ import {
 	BaseController,
 	Right
 } from "tsapir";
-import { IRolePropertyRight } from "../entities/models/RolePropertyRight";
+import { IRolePropertyRight } from "../entities/RolePropertyRight";
 import { ManagerService } from "../manager/ManagerService";
 
 export class RolePropertyRightsController extends BaseController {

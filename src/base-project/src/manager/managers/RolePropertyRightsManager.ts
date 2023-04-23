@@ -1,13 +1,14 @@
 import { FindOptions } from "sequelize";
-import { IRolePropertyRight } from "../../entities/models/RolePropertyRight";
+import { IRolePropertyRight } from "../../entities/RolePropertyRight";
 import { BaseManager, PropertyValidator, Validators } from "tsapir";
+import Entities from "../../entities/Entities";
 
 export class RolePropertyRightsManager extends BaseManager<IRolePropertyRight> {
 	async Add(entity: IRolePropertyRight): Promise<IRolePropertyRight> {
 		return new Promise<IRolePropertyRight>((resolve, reject) => {
 			this.ValidateEntity(entity)
 				.then(() => {
-					this.modelService.RolePropertyRightModel.create(entity)
+					this.modelService.GetModel(Entities.RolePropertyRight).create(entity)
 						.then((e) => resolve(<IRolePropertyRight>e.toJSON()))
 						.catch((e) => reject(e));
 				})
@@ -19,11 +20,11 @@ export class RolePropertyRightsManager extends BaseManager<IRolePropertyRight> {
 			this.ValidateEntity(entity)
 				.then(async () => {
 					const e =
-						await this.modelService.RolePropertyRightModel.findOne({
+						await this.modelService.GetModel(Entities.RolePropertyRight).findOne({
 							where: { id: entity.id }
 						});
 					if (e != null) {
-						this.modelService.RolePropertyRightModel.update(
+						this.modelService.GetModel(Entities.RolePropertyRight).update(
 							entity,
 							{
 								where: { id: entity.id },
@@ -45,7 +46,7 @@ export class RolePropertyRightsManager extends BaseManager<IRolePropertyRight> {
 	}
 	async Remove(entity: IRolePropertyRight): Promise<void> {
 		return new Promise<void>((resolve, reject) => {
-			this.modelService.RolePropertyRightModel.destroy({
+			this.modelService.GetModel(Entities.RolePropertyRight).destroy({
 				where: { id: entity.id }
 			})
 				.then((result) => {
@@ -68,7 +69,7 @@ export class RolePropertyRightsManager extends BaseManager<IRolePropertyRight> {
 			} else {
 				opts = { attributes: { exclude: excludes } };
 			}
-			this.modelService.RolePropertyRightModel.findAll(opts)
+			this.modelService.GetModel(Entities.RolePropertyRight).findAll(opts)
 				.then((roles) =>
 					resolve(roles.map((u) => <IRolePropertyRight>u.toJSON()))
 				)
@@ -79,7 +80,7 @@ export class RolePropertyRightsManager extends BaseManager<IRolePropertyRight> {
 		return {
 			roleId: new PropertyValidator("roleId", [
 				Validators.notNull(),
-				RoleExist(this.modelService.RoleModel)
+				RoleExist(this.modelService.GetModel(Entities.Role))
 			]),
 			entityType: new PropertyValidator("entityType", [
 				Validators.notNull(),

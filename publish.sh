@@ -6,7 +6,15 @@ then
     exit 0
 fi
 
+if [[ -d 'lib' ]]
+then
+    rm -rf lib
+fi
 npm run build
+tar czf ./lib/base-project.tar.gz -C ./lib/base-project .
+rm -rf lib/base-project
+
+cp -r ./src/commands/*.sh ./lib/commands/
 
 filename='package.json'
 while read line; do

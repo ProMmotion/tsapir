@@ -16,7 +16,7 @@ import {
 	BaseController,
 	Right
 } from "tsapir";
-import { IRoleRight } from "../entities/models/RoleRight";
+import { IRoleRight } from "../entities/RoleRight";
 import { ManagerService } from "../manager/ManagerService";
 
 // path: /api/rolerights

@@ -18,7 +18,7 @@ import {
 	canUpdate,
 	getNotMatchingValueProperties
 } from "tsapir";
-import { IUser } from "../entities/models/User";
+import { IUser } from "../entities/User";
 import { IsOwnGuard } from "./guards/IsOwnGuard";
 
 // path: /api/users

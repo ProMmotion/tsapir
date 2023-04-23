@@ -1,16 +1,16 @@
 import { Sequelize } from "sequelize";
-import { Role, RoleDbConf, RoleModelName } from "./entities/models/Role";
+import { Role, RoleDbConf, RoleModelName } from "./entities/Role";
 import {
 	RolePropertyRight,
 	RolePropertyRightDbConf,
 	RolePropertyRightModelName
-} from "./entities/models/RolePropertyRight";
+} from "./entities/RolePropertyRight";
 import {
 	RoleRight,
 	RoleRightDbConf,
 	RoleRightModelName
-} from "./entities/models/RoleRight";
-import { User, UserDbConf, UserModelName } from "./entities/models/User";
+} from "./entities/RoleRight";
+import { User, UserDbConf, UserModelName } from "./entities/User";
 
 export async function InitModel(sequelize: Sequelize): Promise<void> {
 	Role.init(RoleDbConf, { sequelize, modelName: RoleModelName });

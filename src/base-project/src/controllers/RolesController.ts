@@ -16,7 +16,7 @@ import {
 	BaseController,
 	canRead
 } from "tsapir";
-import { IRole } from "../entities/models/Role";
+import { IRole } from "../entities/Role";
 import { ManagerService } from "../manager/ManagerService";
 
 // path: /api/roles

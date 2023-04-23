@@ -32,9 +32,8 @@ import IBaseRole from "./core/entities/IBaseRole";
 import IBaseRolePropertyRight from "./core/entities/IBaseRolePropertyRight";
 import IBaseRoleRight from "./core/entities/IBaseRoleRight";
 import IBaseUser from "./core/entities/IBaseUser";
-import IModelService from "./core/entities/IModelService";
+import { ModelService, InnerModel } from "./core/entities/ModelService";
 import { getNotMatchingValueProperties } from "./core/utils/utils";
-import { ExtendsType } from "./core/utils/Types";
 
 export {
 	API,
@@ -65,11 +64,11 @@ export {
 	PropertyValidator,
 	IManagerService,
 	BaseManager,
-	IModelService,
+	ModelService,
+	InnerModel,
 	IBaseRole,
 	IBaseRoleRight,
 	IBaseRolePropertyRight,
 	IBaseUser,
-	getNotMatchingValueProperties,
-	ExtendsType
+	getNotMatchingValueProperties
 };

@@ -6,78 +6,16 @@ export default async function New(name: string) {
 		output: process.stdout
 	});
 	rl.on("close", async () => {
-		console.log(`Starting to create ${appName} App !`);
-		const fs = require("fs");
+		const path = require("path");
 		try {
 			const exec = require("child_process").exec;
-			const path = `${process.cwd()}\\${appName}`;
-			fs.mkdir(path, (mkDirErr: Error) => {
-				if (mkDirErr) throw mkDirErr;
-				fs.cp(
-					`${__dirname}\\..\\base-project\\`,
-					`${path}\\`,
-					{ force: true, recursive: true },
-					(cpFileErr: Error) => {
-						if (cpFileErr) throw cpFileErr;
-						fs.readFile(
-							`${path}\\package.json`,
-							{ encoding: "utf8" },
-							(e: Error, d: string) => {
-								if (e) throw e;
-								exec(
-									"npm view tsapir version",
-									(
-										cmdErr: Error,
-										stdout: string,
-										stderr: Error
-									) => {
-										if (cmdErr) throw cmdErr;
-										if (stderr) throw stderr;
-										fs.writeFile(
-											`${path}\\package.json`,
-											d
-												.replace(
-													"##project_name##",
-													appName
-												)
-												.replace(
-													"##tsapir_version##",
-													stdout
-														.trim()
-														.replace("\n", "")
-														.replace("\t", "")
-												),
-											"utf8",
-											(err: Error) => {
-												if (err) throw err;
-												console.log(
-													`Successfuly created ${appName} !`
-												);
-												exec(
-													`cd ${path} && npm i`,
-													(
-														cmdErr: Error,
-														stdout: string,
-														stderr: Error
-													) => {
-														if (cmdErr)
-															throw cmdErr;
-														if (stderr)
-															throw stderr;
-														console.log(
-															"Successfuly installed npm packages"
-														);
-													}
-												);
-											}
-										);
-									}
-								);
-							}
-						);
-					}
-				);
-			});
+			exec(
+				`sh ${path.join(__dirname, "new.sh")} ${appName}`,
+				(cmdErr: Error, stdout: string, stderr: Error) => {
+					if (cmdErr) throw cmdErr;
+					if (stderr) throw stderr;
+				}
+			);
 		} catch (e) {
 			console.error(e);
 		}
