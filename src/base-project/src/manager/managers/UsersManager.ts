@@ -2,6 +2,11 @@ import bcrypt from "bcrypt";
 import { FindOptions } from "sequelize";
 import { BaseManager, PropertyValidator, Validators } from "tsapir";
 import { IUser, User } from "../../entities/User";
+import { Role } from "../../entities/Role";
+import { EmailNotTaken } from "../validators/EmailNotTaken";
+import { MinAge } from "../validators/MinAge";
+import { NickNameNotTaken } from "../validators/NickNameNotTaken";
+import { RoleExist } from "../validators/RoleExist";
 
 export class UsersManager extends BaseManager<IUser> {
 	async Add(entity: IUser): Promise<IUser> {
@@ -105,7 +110,7 @@ export class UsersManager extends BaseManager<IUser> {
 			roleId: new PropertyValidator("roleId", [
 				Validators.notNull(),
 				Validators.min(1),
-				RoleExist(User)
+				RoleExist(Role)
 			]),
 			nationality: new PropertyValidator("nationality", [
 				Validators.notNull()

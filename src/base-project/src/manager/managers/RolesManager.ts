@@ -6,6 +6,7 @@ import {
 	Validators,
 	getNotMatchingValueProperties
 } from "tsapir";
+import { RoleNameNotTaken } from "../validators/RoleNameNotTaken";
 
 export class RolesManager extends BaseManager<IRole> {
 	async Add(entity: IRole): Promise<IRole> {

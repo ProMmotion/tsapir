@@ -7,6 +7,9 @@ import {
 	getNotMatchingValueProperties
 } from "tsapir";
 import { Role } from "../../entities/Role";
+import { EntityTypeExist } from "../validators/EntityTypeExist";
+import { RightExist } from "../validators/RightExist";
+import { RoleExist } from "../validators/RoleExist";
 
 export class RoleRightsManager extends BaseManager<IRoleRight> {
 	async Add(entity: IRoleRight): Promise<IRoleRight> {

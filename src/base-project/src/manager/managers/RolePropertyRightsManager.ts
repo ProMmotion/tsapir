@@ -5,6 +5,9 @@ import {
 } from "../../entities/RolePropertyRight";
 import { BaseManager, PropertyValidator, Validators } from "tsapir";
 import { Role } from "../../entities/Role";
+import { RoleExist } from "../validators/RoleExist";
+import { EntityTypeExist } from "../validators/EntityTypeExist";
+import { RightExist } from "../validators/RightExist";
 
 export class RolePropertyRightsManager extends BaseManager<IRolePropertyRight> {
 	async Add(entity: IRolePropertyRight): Promise<IRolePropertyRight> {
