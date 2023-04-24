@@ -1,12 +1,7 @@
 import { FindOptions } from "sequelize";
 import PropertyValidator from "../validators/PropertyValidator";
-import {ModelService} from "../entities/ModelService";
 
 export default abstract class BaseManager<T> {
-	protected readonly modelService: ModelService;
-	constructor(modelService: ModelService){
-		this.modelService = modelService;
-	}
 	abstract GetValidators(): { [key: string]: PropertyValidator<T> }; // key must be keyof T
 	abstract Add(entity: T): Promise<T>;
 	abstract Update(entity: T, fields?: (keyof T)[]): Promise<T>;

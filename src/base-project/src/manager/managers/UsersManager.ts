@@ -1,8 +1,7 @@
 import bcrypt from "bcrypt";
 import { FindOptions } from "sequelize";
 import { BaseManager, PropertyValidator, Validators } from "tsapir";
-import { IUser } from "../../entities/User";
-import Entities from "../../entities/Entities";
+import { IUser, User } from "../../entities/User";
 
 export class UsersManager extends BaseManager<IUser> {
 	async Add(entity: IUser): Promise<IUser> {
@@ -11,7 +10,7 @@ export class UsersManager extends BaseManager<IUser> {
 				.then((e) => {
 					bcrypt.hash(entity.password, 10, (err, hash) => {
 						entity.password = hash;
-						this.modelService.GetModel(Entities.User).create(entity)
+						User.create(entity)
 							.then((e) => {
 								resolve(<IUser>{ ...e.toJSON(), password: "" });
 							})
@@ -34,7 +33,7 @@ export class UsersManager extends BaseManager<IUser> {
 						const hash = bcrypt.hashSync(entity.password, 10);
 						entity.password = hash;
 					}
-					this.modelService.GetModel(Entities.User).update(entity, {
+					User.update(entity, {
 						where: { id: entity.id },
 						fields: fields,
 						returning: true
@@ -54,7 +53,7 @@ export class UsersManager extends BaseManager<IUser> {
 	async Remove(entity: IUser): Promise<void> {
 		return new Promise<void>((resolve, reject) => {
 			entity.deletedAt = new Date(Date.now());
-			this.modelService.GetModel(Entities.User).update(entity, {
+			User.update(entity, {
 				where: { id: entity.id }
 			})
 				.then(() => resolve())
@@ -76,7 +75,7 @@ export class UsersManager extends BaseManager<IUser> {
 					attributes: { exclude: excludes }
 				};
 			}
-			this.modelService.GetModel(Entities.User).findAll(opts)
+			User.findAll(opts)
 				.then((users) => resolve(users.map((u) => <IUser>u.toJSON())))
 				.catch((e) => reject(e));
 		});
@@ -86,12 +85,12 @@ export class UsersManager extends BaseManager<IUser> {
 			nickName: new PropertyValidator("nickName", [
 				Validators.notNull(),
 				Validators.minLen(4),
-				NickNameNotTaken(this.modelService.GetModel(Entities.User))
+				NickNameNotTaken(User)
 			]),
 			email: new PropertyValidator("email", [
 				Validators.notNull(),
 				Validators.isEmail(),
-				EmailNotTaken(this.modelService.GetModel(Entities.User))
+				EmailNotTaken(User)
 			]),
 			birthday: new PropertyValidator("birthday", [
 				Validators.notNull(),
@@ -106,7 +105,7 @@ export class UsersManager extends BaseManager<IUser> {
 			roleId: new PropertyValidator("roleId", [
 				Validators.notNull(),
 				Validators.min(1),
-				RoleExist(this.modelService.GetModel(Entities.Role))
+				RoleExist(User)
 			]),
 			nationality: new PropertyValidator("nationality", [
 				Validators.notNull()

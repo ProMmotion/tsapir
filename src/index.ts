@@ -32,8 +32,9 @@ import IBaseRole from "./core/entities/IBaseRole";
 import IBaseRolePropertyRight from "./core/entities/IBaseRolePropertyRight";
 import IBaseRoleRight from "./core/entities/IBaseRoleRight";
 import IBaseUser from "./core/entities/IBaseUser";
-import { ModelService, InnerModel } from "./core/entities/ModelService";
 import { getNotMatchingValueProperties } from "./core/utils/utils";
+import AuthorizationGuard from "./core/controller/guards/AuthorizationGuard";
+import { ClassType } from "./core/utils/Types";
 
 export {
 	API,
@@ -49,6 +50,7 @@ export {
 	DeleteGuard,
 	ReadGuard,
 	UpdateGuard,
+	AuthorizationGuard,
 	HttpMethods,
 	HttpStatusCodes,
 	ContentTypes,
@@ -64,11 +66,10 @@ export {
 	PropertyValidator,
 	IManagerService,
 	BaseManager,
-	ModelService,
-	InnerModel,
 	IBaseRole,
 	IBaseRoleRight,
 	IBaseRolePropertyRight,
 	IBaseUser,
-	getNotMatchingValueProperties
+	getNotMatchingValueProperties,
+	ClassType
 };
