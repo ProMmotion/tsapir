@@ -1,4 +1,3 @@
-import { Validator } from "sequelize";
 import API from "./api";
 import {
 	APIConfig,
@@ -35,6 +34,7 @@ import IBaseUser from "./core/entities/IBaseUser";
 import { getNotMatchingValueProperties } from "./core/utils/utils";
 import AuthorizationGuard from "./core/controller/guards/AuthorizationGuard";
 import { ClassType } from "./core/utils/Types";
+import Validator from "./core/validators/Validator";
 
 export {
 	API,
