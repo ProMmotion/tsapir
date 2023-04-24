@@ -126,8 +126,8 @@ export class RoleRightsController extends BaseController {
 				try {
 					const roleRight = <IRoleRight>Object.assign(
 						{
-							id: 0,
-							roleId: 0,
+							id: "",
+							roleId: "",
 							entityType: "",
 							right: Right.None
 						},
@@ -168,8 +168,8 @@ export class RoleRightsController extends BaseController {
 				try {
 					const roleRight = <IRoleRight>Object.assign(
 						{
-							id: 0,
-							roleId: 0,
+							id: "",
+							roleId: "",
 							entityType: "",
 							right: Right.None
 						},
@@ -219,8 +219,8 @@ export class RoleRightsController extends BaseController {
 				try {
 					const roleRight = <IRoleRight>Object.assign(
 						{
-							id: 0,
-							roleId: 0,
+							id: "",
+							roleId: "",
 							entityType: "",
 							right: Right.None
 						},

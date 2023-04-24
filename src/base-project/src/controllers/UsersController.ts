@@ -174,15 +174,15 @@ export class UsersController extends BaseController {
 				try {
 					const user = <IUser>Object.assign(
 						{
+							id: "",
 							status: 0,
 							birthday: new Date(),
 							createdAt: new Date(),
-							id: 0,
 							nationality: "en",
 							nickName: "",
 							email: "",
 							password: "",
-							roleId: 2,
+							roleId: "2",
 							active: true
 						},
 						req.body
@@ -224,15 +224,15 @@ export class UsersController extends BaseController {
 				try {
 					const user = <IUser>Object.assign(
 						{
+							id: "",
 							status: 0,
 							birthday: new Date(),
 							createdAt: new Date(),
-							id: 0,
 							nationality: "en",
 							nickName: "",
 							email: "",
 							password: "",
-							roleId: 0,
+							roleId: "0",
 							active: true
 						},
 						req.body
@@ -295,15 +295,15 @@ export class UsersController extends BaseController {
 				try {
 					const user = <IUser>Object.assign(
 						{
+							id: "",
 							status: 0,
 							birthday: new Date(),
 							createdAt: new Date(),
-							id: 0,
 							nationality: "en",
 							nickName: "",
 							email: "",
 							password: "",
-							roleId: 0,
+							roleId: "0",
 							active: true
 						},
 						req.body

@@ -52,14 +52,14 @@ export class AuthController extends BaseController {
 					req.body
 				);
 				this.managerService.UserManager.Add({
-					id: 0,
+					id: "",
 					birthday: signinForm.birth,
 					email: signinForm.email,
 					nickName: signinForm.login,
 					password: signinForm.password,
 					active: true,
 					nationality: "en",
-					roleId: 2,
+					roleId: "2",
 					status: 0
 				})
 					.then((e) => {

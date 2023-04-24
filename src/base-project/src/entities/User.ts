@@ -3,12 +3,10 @@ import { Role } from "./Role";
 import { IBaseUser } from "tsapir";
 
 export interface IUser extends IBaseUser {
-	id: string;
 	nickName: string;
 	email: string;
 	password: string;
 	birthday: Date;
-	roleId: string;
 	subscribedUntil?: Date;
 	bannedUntil?: Date;
 	nationality: "fr" | "en";

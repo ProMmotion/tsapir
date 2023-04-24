@@ -108,7 +108,7 @@ export class RolesController extends BaseController {
 				try {
 					const role = <IRole>Object.assign(
 						{
-							id: 0,
+							id: "",
 							name: ""
 						},
 						req.body
@@ -148,7 +148,7 @@ export class RolesController extends BaseController {
 				try {
 					const role = <IRole>Object.assign(
 						{
-							id: 0,
+							id: "",
 							name: ""
 						},
 						req.body
@@ -197,7 +197,7 @@ export class RolesController extends BaseController {
 				try {
 					const role = <IRole>Object.assign(
 						{
-							id: 0,
+							id: "",
 							name: ""
 						},
 						req.body

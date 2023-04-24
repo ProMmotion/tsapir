@@ -158,8 +158,8 @@ export class RolePropertyRightsController extends BaseController {
 				try {
 					const roleRight = <IRolePropertyRight>Object.assign(
 						{
-							id: 0,
-							roleId: 0,
+							id: "",
+							roleId: "",
 							entityType: "",
 							right: Right.None,
 							property: ""
@@ -201,8 +201,8 @@ export class RolePropertyRightsController extends BaseController {
 				try {
 					const roleRight = <IRolePropertyRight>Object.assign(
 						{
-							id: 0,
-							roleId: 0,
+							id: "",
+							roleId: "",
 							entityType: "",
 							right: Right.None,
 							property: ""
@@ -253,8 +253,8 @@ export class RolePropertyRightsController extends BaseController {
 				try {
 					const roleRight = <IRolePropertyRight>Object.assign(
 						{
-							id: 0,
-							roleId: 0,
+							id: "",
+							roleId: "",
 							entityType: "",
 							right: Right.None,
 							property: ""
