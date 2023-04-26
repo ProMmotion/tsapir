@@ -83,8 +83,7 @@ export class AuthController extends BaseController {
 						reject(
 							new APIError(
 								HttpStatusCodes.BADREQUEST,
-								"Errors in signin form",
-								e
+								"Errors in signin form"
 							)
 						)
 					);
