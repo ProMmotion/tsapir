@@ -32,7 +32,7 @@
 	"bugs": {
 		"url": "https://github.com/ProMmotion/tsapir/issues"
 	},
-	"homepage": "https://github.com/ProMmotion/tsapir#readme",
+	"homepage": "https://prommotion.github.io/tsapir/",
 	"devDependencies": {
 		"@types/node": "^18.14.0",
 		"@types/jsonwebtoken": "^9.0.0",
