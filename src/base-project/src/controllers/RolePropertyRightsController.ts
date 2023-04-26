@@ -209,7 +209,7 @@ export class RolePropertyRightsController extends BaseController {
 						},
 						req.body
 					);
-					if (roleRight.id == 0) {
+					if (roleRight.id == "") {
 						reject(
 							new APIError(
 								HttpStatusCodes.BADREQUEST,
@@ -261,7 +261,7 @@ export class RolePropertyRightsController extends BaseController {
 						},
 						req.body
 					);
-					if (roleRight.id == 0) {
+					if (roleRight.id == "") {
 						reject(
 							new APIError(
 								HttpStatusCodes.BADREQUEST,

@@ -1,8 +1,13 @@
 import { DataTypes, Model } from "sequelize";
 import { Role } from "./Role";
-import { IBaseRoleRight } from "tsapir";
+import { IBaseRoleRight, Right } from "tsapir";
 
-export interface IRoleRight extends IBaseRoleRight {}
+export interface IRoleRight extends IBaseRoleRight {
+	id: string;
+	roleId: string;
+	right: Right;
+	entityType: string;
+}
 
 export class RoleRight extends Model<IRoleRight> {}
 

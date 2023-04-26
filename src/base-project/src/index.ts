@@ -6,6 +6,8 @@ import { InitModel } from "./init";
 import { ManagerService } from "./manager/ManagerService";
 import { API } from "tsapir";
 
+require("dotenv").config();
+
 const ms = new ManagerService();
 
 new API([

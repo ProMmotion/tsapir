@@ -3,6 +3,8 @@ import { Role } from "./Role";
 import { IBaseUser } from "tsapir";
 
 export interface IUser extends IBaseUser {
+	id: string;
+	roleId: string;
 	nickName: string;
 	email: string;
 	password: string;

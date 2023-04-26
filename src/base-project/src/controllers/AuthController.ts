@@ -13,6 +13,7 @@ import {
 } from "tsapir";
 import { IUser } from "../entities/User";
 import { ManagerService } from "../manager/ManagerService";
+import { GetPrivateKey } from "../utils/utils";
 
 // path: /api/authorize
 export class AuthController extends BaseController {

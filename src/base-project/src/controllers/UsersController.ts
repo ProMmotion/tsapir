@@ -237,7 +237,7 @@ export class UsersController extends BaseController {
 						},
 						req.body
 					);
-					if (user.id == 0) {
+					if (user.id == "") {
 						catching("User id not specified");
 						return;
 					}
@@ -308,7 +308,7 @@ export class UsersController extends BaseController {
 						},
 						req.body
 					);
-					if (user.id == 0) {
+					if (user.id == "") {
 						reject(
 							new APIError(
 								HttpStatusCodes.BADREQUEST,
