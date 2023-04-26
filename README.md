@@ -1,10 +1,6 @@
-# Tsapir REST API library
+# Tsapir REST API library, to build and publish fast
 
 <small>Developed and tested on windows</small>
-
-## To build and publish fast
-
-<br/>
 
 ### To install tsapir globally and use cli commands
 
