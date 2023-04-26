@@ -1,5 +1,7 @@
 # Tsapir REST API library, to build and publish fast
 
+<p style="text-align:center"><img height="100" src="https://repository-images.githubusercontent.com/603379300/3fa46489-8040-4b62-a926-b27e1d88210d"></p>
+
 [![forthebadge made-with-typescript](http://ForTheBadge.com/images/badges/made-with-typescript.svg)](https://www.typescriptlang.org/)
 
 [![Npm package version](https://badgen.net/npm/v/tsapir)](https://npmjs.com/package/tsapir)
