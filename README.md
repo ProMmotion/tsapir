@@ -2,6 +2,9 @@
 
 [![forthebadge made-with-typescript](http://ForTheBadge.com/images/badges/made-with-typescript.svg)](https://www.typescriptlang.org/)
 
+[![Npm package version](https://badgen.net/npm/v/tsapir)](https://npmjs.com/package/tsapir)
+[![GitHub watchers](https://badgen.net/github/watchers/prommotion/tsapir/)](https://github.com/ProMmotion/tsapir/watchers)
+
 <small>Developed and tested on windows</small>
 
 ### To install tsapir globally and use cli commands
