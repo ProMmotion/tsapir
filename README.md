@@ -1,5 +1,7 @@
 # Tsapir REST API library, to build and publish fast
 
+[![forthebadge made-with-typescript](http://ForTheBadge.com/images/badges/made-with-typescript.svg)](https://www.typescriptlang.org/)
+
 <small>Developed and tested on windows</small>
 
 ### To install tsapir globally and use cli commands
@@ -16,7 +18,7 @@ n, new      Param: <name> Optional      New: Generate a new application
 g, generate                             Generate
 ```
 
-<br/><br/>
+<br/>
 
 ## What's in the library ?
 
