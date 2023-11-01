@@ -22,7 +22,7 @@ export class IsOwnGuard implements APIGuard {
 								where: { id: req.body.id }
 							})
 						)[0];
-						if (req.user.email === u.email) {
+						if (req.user.id === u.id) {
 							return HttpStatusCodes.OK;
 						}
 					} catch (e) {

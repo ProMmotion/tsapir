@@ -1,4 +1,4 @@
-import { Validator, Class as ClassType } from "tsapir";
+import { Validator, ClassType } from "tsapir";
 
 export function IsKeyOf<T>(n: ClassType<T>): Validator {
 	return new IsKeyOfValidator(n);
