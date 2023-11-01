@@ -55,3 +55,7 @@ fi
 echo "New version: $new"
 sed -i "s/$old/$new/gi" $filename
 npm publish
+
+git add .
+git commit -m "published version $new"
+git push
