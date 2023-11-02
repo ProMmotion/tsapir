@@ -35,12 +35,12 @@ export function findMatchingRoute(
 	route: string,
 	subRoutes: APIControllerMethod[]
 ): APIControllerMethod | undefined {
-	return subRoutes.find((sub) => {
+	const matches = subRoutes.filter((sub) => {
 		const sub1Elements = route.split("/").filter((s) => s !== "");
 		const sub2Elements = sub.route.split("/").filter((s) => s !== "");
-		if (sub1Elements.length !== sub2Elements.length) {
-			return false;
-		}
+		// if (sub1Elements.length !== sub2Elements.length) {
+		// 	return false;
+		// }
 		for (let i = 0; i < sub1Elements.length; i++) {
 			if (
 				!sub2Elements[i].startsWith(":") &&
@@ -51,6 +51,7 @@ export function findMatchingRoute(
 		}
 		return true;
 	});
+	return matches.length ? matches[0] : undefined;
 }
 export function getNotMatchingValueProperties<T>(
 	obj1: T,
