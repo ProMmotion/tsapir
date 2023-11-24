@@ -1,7 +1,8 @@
 {
 	"name": "tsapir",
-	"version": "1.3.2",
+	"version": "1.3.3",
 	"description": "",
+	"main": "./lib/index.js",
 	"exports": {
 		".": {
 			"types": "./lib/index.d.ts",
